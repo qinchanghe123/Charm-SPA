@@ -7,17 +7,16 @@
     <title>Charm SPA</title>
     <meta
       name="description"
-      content="Experience ultimate relaxation at Charm SPA, known for exceptional massages tailored to your needs. Clients love our serene environment, skilled therapists, and personalized care. Unwind and recharge with us."
+      content="Experience ultimate relaxation at Charm SPA, 324 SE 82nd Ave, Portland, OR 97216. Serene environment, skilled therapists, and personalized care."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Matemasie&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
       rel="stylesheet"
     />
     <style>
-      /* ===== 全局与背景（50% 透明） ===== */
-
+      /* ===== 全局与背景（50% 透明叠加区域见各区块） ===== */
       body {
         font-family: 'Josefin Sans', sans-serif;
         margin: 0;
@@ -26,389 +25,162 @@
         line-height: 1.6;
 
         /* 背景图片（替换为你的图片路径） */
-        background-color: #f9f9f9; /* 图片加载失败时的兜底色 */
+        background-color: #f9f9f9; /* 兜底色 */
         background-image: url('your-background.jpg');
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
+
+        /* 为了不被固定导航挡住内容 */
+        margin-top: 70px;
       }
 
-      h1, h2, h3, h4, h5, h6 {
-        font-weight: 600;
-        margin-bottom: 1rem;
-      }
-
-      section {
-        padding: 60px 20px;
-        text-align: center;
-      }
-
-      section h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-        color: #333;
-      }
-
-      section h4 {
-        font-size: 1.2rem;
-        color: #444;
-        margin-bottom: 2rem;
-      }
+      h1, h2, h3, h4, h5, h6 { font-weight: 600; margin-bottom: 1rem; }
+      section { padding: 60px 20px; text-align: center; }
+      section h2 { font-size: 2.5rem; margin-bottom: 1.5rem; color: #333; }
+      section h4 { font-size: 1.2rem; color: #444; margin-bottom: 2rem; }
 
       /* ===== 导航（50% 透明） ===== */
       nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-        background-color: rgba(107, 115, 255, 0.5); /* 50% */
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        backdrop-filter: blur(6px);
+        display: flex; justify-content: center; align-items: center;
+        padding: 1rem; background-color: rgba(107, 115, 255, 0.5); /* 50% */
+        position: fixed; top: 0; width: 100%; z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1); backdrop-filter: blur(6px);
       }
+      nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+      nav ul li { margin-left: 20px; }
+      nav ul li a { color: white; text-decoration: none; font-size: 1.1rem; transition: opacity 0.3s ease; }
+      nav ul li a:hover { opacity: 0.85; }
 
-      /* 防止内容被固定导航遮挡 */
-      body {
-        margin-top: 70px;
-      }
-
-      nav ul {
-        list-style: none;
-        display: flex;
-        margin: 0;
-        padding: 0;
-      }
-
-      nav ul li {
-        margin-left: 20px;
-      }
-
-      nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-size: 1.1rem;
-        transition: opacity 0.3s ease;
-      }
-
-      nav ul li a:hover {
-        opacity: 0.8;
-      }
-
-      /* ===== 首页（叠加 50% 渐变，透出背景图） ===== */
+      /* ===== 首页（50% 渐变罩层，让背景可见） ===== */
       .home {
-        /* 半透明渐变，让 body 背景图可见 */
         background: linear-gradient(135deg, rgba(102,126,234,0.5) 0%, rgba(118,75,162,0.5) 100%);
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-align: center;
-        margin-top: 70px;
-        position: relative;
-        overflow: hidden;
+        height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        color: white; text-align: center; position: relative; overflow: hidden;
       }
-
       .home::before {
-        content: '';
-        position: absolute;
-        inset: 0;
+        content: ''; position: absolute; inset: 0;
         background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><path d="M0,20 Q250,80 500,20 T1000,20 V100 H0 Z"/></svg>') repeat-x;
-        background-size: 1000px 100px;
-        animation: wave 10s linear infinite;
+        background-size: 1000px 100px; animation: wave 10s linear infinite;
       }
-
-      @keyframes wave {
-        0% { background-position-x: 0; }
-        100% { background-position-x: 1000px; }
-      }
+      @keyframes wave { 0% { background-position-x: 0; } 100% { background-position-x: 1000px; } }
 
       .home-content {
         background-color: rgba(255, 255, 255, 0.5); /* 50% */
         backdrop-filter: blur(10px);
-        padding: 40px;
-        border-radius: 20px;
-        max-width: 800px;
-        margin-bottom: 30px;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        padding: 40px; border-radius: 20px; max-width: 800px; margin-bottom: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       }
+      .home h1 { font-size: 3.2rem; margin-bottom: 14px; color: #FFD700; font-weight: 300; letter-spacing: 2px; }
+      .spa-tagline { font-size: 1.2rem; margin-bottom: 8px; opacity: 0.95; }
+      .spa-address { font-size: 1rem; opacity: 0.95; }
 
-      .home h1 {
-        font-size: 3.5rem;
-        margin-bottom: 20px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        color: #FFD700;
-        font-weight: 300;
-        letter-spacing: 2px;
-      }
-
-      .spa-tagline {
-        font-size: 1.3rem;
-        margin-bottom: 20px;
-        opacity: 0.95;
-        font-style: italic;
-      }
-
-      /* ===== 按钮与联系卡片（50% 透明） ===== */
-      .contact-buttons {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 20px;
-      }
-
+      /* ===== 联系卡片（50% 透明） ===== */
+      .contact-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
       .contact-card {
         background: rgba(255, 255, 255, 0.5); /* 50% */
-        backdrop-filter: blur(10px);
-        color: #333;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        min-width: 300px;
-        transition: all 0.3s ease;
+        backdrop-filter: blur(10px); color: #333; padding: 30px; border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2); min-width: 300px; transition: all 0.3s ease;
         border: 1px solid rgba(255, 255, 255, 0.3);
       }
-
-      .contact-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-      }
-
-      .contact-card h3 {
-        color: #fff;
-        font-size: 1.6rem;
-        margin-bottom: 15px;
-        font-weight: 500;
-        text-shadow: 0 1px 2px rgba(0,0,0,0.25);
-      }
-
-      .phone-number {
-        font-size: 1.9rem;
-        font-weight: bold;
-        color: #764ba2;
-        text-decoration: none;
-        display: block;
-        margin: 15px 0;
-        transition: color 0.3s ease;
-      }
-
-      .phone-number:hover {
-        color: #667eea;
-      }
-
-      .contact-card p {
-        color: #222;
-        line-height: 1.5;
-      }
+      .contact-card:hover { transform: translateY(-6px); box-shadow: 0 12px 35px rgba(0,0,0,0.25); }
+      .contact-card h3 { color: #fff; font-size: 1.4rem; margin-bottom: 12px; font-weight: 500; text-shadow: 0 1px 2px rgba(0,0,0,0.25); }
+      .phone-number { font-size: 1.7rem; font-weight: bold; color: #764ba2; text-decoration: none; display: block; margin: 10px 0; }
+      .phone-number:hover { color: #667eea; }
 
       .book-button, .call-button {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 25px;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 1.1rem;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        margin: 10px;
-        cursor: pointer;
-        text-align: center;
+        color: white; padding: 14px 26px; border: none; border-radius: 25px; text-decoration: none; display: inline-block;
+        font-size: 1.05rem; font-weight: 600; transition: all 0.3s ease; margin: 8px; cursor: pointer;
         box-shadow: 0 4px 15px rgba(107, 115, 255, 0.3);
       }
-
-      .book-button:hover, .call-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(107, 115, 255, 0.4);
-      }
+      .book-button:hover, .call-button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(107,115,255,0.4); }
 
       /* ===== 预约表单（50% 透明） ===== */
       .booking-form {
-        display: none;
-        background: rgba(255, 255, 255, 0.5); /* 50% */
-        backdrop-filter: blur(15px);
-        color: #333;
-        padding: 35px;
-        border-radius: 20px;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        max-width: 550px;
-        margin: 20px auto;
-        position: relative;
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        display: none; background: rgba(255, 255, 255, 0.5); /* 50% */
+        backdrop-filter: blur(15px); color: #333; padding: 30px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        max-width: 550px; margin: 20px auto; position: relative; border: 1px solid rgba(255, 255, 255, 0.4);
       }
-
       .booking-form.active { animation: slideIn 0.3s ease-out; display: block; }
       @keyframes slideIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-
-      .booking-form h3 { color: #fff; margin-bottom: 25px; font-size: 2rem; font-weight: 400; text-shadow: 0 1px 2px rgba(0,0,0,0.25); }
-      .form-group { margin-bottom: 20px; text-align: left; }
+      .booking-form h3 { color: #fff; margin-bottom: 18px; font-size: 1.6rem; font-weight: 500; text-shadow: 0 1px 2px rgba(0,0,0,0.25); }
+      .form-group { margin-bottom: 16px; text-align: left; }
       .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #222; font-size: 0.95rem; }
       .form-group input, .form-group select, .form-group textarea {
-        width: 100%; padding: 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.3s ease; box-sizing: border-box; background: rgba(255, 255, 255, 0.8);
+        width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.3s ease; box-sizing: border-box; background: rgba(255, 255, 255, 0.8);
       }
       .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #6B73FF; background: white; box-shadow: 0 0 0 3px rgba(107,115,255,0.1); }
-      .form-row { display: flex; gap: 15px; }
+      .form-row { display: flex; gap: 12px; }
       .form-row .form-group { flex: 1; }
-      .close-form { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 28px; cursor: pointer; color: #333; transition: color 0.3s ease; }
-      .close-form:hover { color: #000; transform: scale(1.1); }
-
-      .submit-btn {
-        background: linear-gradient(135deg, #6B73FF 0%, #764ba2 100%);
-        color: white;
-        padding: 18px 35px;
-        border: none;
-        border-radius: 25px;
-        font-size: 1.2rem;
-        font-weight: 600;
-        cursor: pointer;
-        width: 100%;
-        transition: all 0.3s ease;
-        margin-top: 15px;
-        box-shadow: 0 4px 15px rgba(107, 115, 255, 0.3);
-      }
-      .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(107,115,255,0.4); }
+      .close-form { position: absolute; top: 12px; right: 16px; background: none; border: none; font-size: 26px; cursor: pointer; color: #333; }
+      .submit-btn { background: linear-gradient(135deg, #6B73FF 0%, #764ba2 100%); color: white; padding: 16px 30px; border: none; border-radius: 25px; font-size: 1.1rem; font-weight: 600; cursor: pointer; width: 100%; margin-top: 10px; }
 
       /* ===== 服务与特惠区块背景（50% 透明） ===== */
       #services { background: linear-gradient(135deg, rgba(245,247,255,0.5) 0%, rgba(232,242,255,0.5) 100%); }
       #specials { background: linear-gradient(135deg, rgba(255,245,245,0.5) 0%, rgba(255,232,232,0.5) 100%); }
-      #specials .services { background: transparent; }
-
-      .services, .reviews-container {
-        display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin: 40px 0;
-      }
-
-      .service-box, .review-card {
+      .services, .reviews-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin: 40px 0; }
+      .service-box {
         background: rgba(255, 255, 255, 0.5); /* 50% */
-        margin: 10px;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        width: 320px;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(107,115,255,0.15);
-        backdrop-filter: blur(6px);
+        margin: 10px; padding: 26px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        width: 320px; transition: all 0.3s ease; border: 1px solid rgba(107,115,255,0.15); backdrop-filter: blur(6px);
       }
-      .service-box:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-color: rgba(107,115,255,0.3); }
-      .service-box h3, .review-card h3 { color: #6B73FF; font-size: 1.6rem; margin-bottom: 15px; font-weight: 500; }
-      .service-box p, .review-card p { color: #222; line-height: 1.7; }
-
-      .service-box .price-wrapper {
-        margin-top: 20px;
-        background: linear-gradient(135deg, rgba(248,249,255,0.5) 0%, rgba(238,241,255,0.5) 100%); /* 50% */
-        padding: 15px;
-        border-radius: 10px;
-        display: none;
-        min-height: 100px;
-        border-left: 4px solid #6B73FF;
-      }
-      .price-wrapper h4 { margin: 5px 0; color: #333; font-size: 1.1rem; }
+      .service-box:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-color: rgba(107,115,255,0.3); }
+      .service-box h3 { color: #6B73FF; font-size: 1.4rem; margin-bottom: 10px; font-weight: 500; }
+      .service-box .price-wrapper { margin-top: 16px; background: rgba(238,241,255,0.5); padding: 12px; border-radius: 10px; display: none; min-height: 92px; border-left: 4px solid #6B73FF; }
 
       /* ===== 画廊（50% 透明） ===== */
       #gallery { background: linear-gradient(135deg, rgba(248,249,255,0.5) 0%, rgba(238,241,255,0.5) 100%); padding: 80px 20px; }
       .gallery-container { max-width: 1200px; margin: 0 auto; }
       .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 40px 0; }
-      .photo-item {
-        position: relative;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        cursor: pointer;
-        background: rgba(255,255,255,0.5); /* 50% */
-        aspect-ratio: 4/3;
-        backdrop-filter: blur(4px);
-      }
-      .photo-item:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
+      .photo-item { position: relative; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; background: rgba(255,255,255,0.5); aspect-ratio: 4/3; backdrop-filter: blur(4px); }
+      .photo-item:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
       .photo-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
       .photo-item:hover img { transform: scale(1.05); }
-
-      .photo-overlay {
-        position: absolute; bottom: 0; left: 0; right: 0;
-        background: linear-gradient(transparent, rgba(0,0,0,0.6));
-        color: white; padding: 20px; transform: translateY(100%); transition: transform 0.3s ease;
-      }
+      .photo-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.6)); color: white; padding: 16px; transform: translateY(100%); transition: transform 0.3s ease; }
       .photo-item:hover .photo-overlay { transform: translateY(0); }
-      .photo-overlay h4 { margin: 0 0 5px 0; font-size: 1.2rem; }
-      .photo-overlay p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
 
-      /* ===== 灯箱（背景维持不透明度以保证可读性） ===== */
+      /* ===== 灯箱（50% 背景卡片保持） ===== */
       .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center; }
       .lightbox.active { display: flex; }
-      .lightbox-content {
-        position: relative; max-width: 90%; max-height: 90%;
-        background: rgba(255,255,255,0.5); /* 50% */
-        border-radius: 10px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); backdrop-filter: blur(6px);
-      }
+      .lightbox-content { position: relative; max-width: 90%; max-height: 90%; background: rgba(255,255,255,0.5); border-radius: 10px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); backdrop-filter: blur(6px); }
       .lightbox img { width: 100%; height: auto; display: block; }
-
-      .lightbox-close {
-        position: absolute; top: 15px; right: 20px; color: white; font-size: 30px; cursor: pointer;
-        background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%;
-        display: flex; align-items: center; justify-content: center; transition: background 0.3s ease;
-      }
-      .lightbox-close:hover { background: rgba(0,0,0,0.8); }
-
-      .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 24px; padding: 15px; cursor: pointer; transition: background 0.3s ease; border-radius: 5px; }
-      .lightbox-nav:hover { background: rgba(0,0,0,0.8); }
-      .lightbox-prev { left: 20px; }
-      .lightbox-next { right: 20px; }
-      .loading-message { text-align: center; color: #666; font-style: italic; margin: 40px 0; }
+      .lightbox-close { position: absolute; top: 12px; right: 16px; color: white; font-size: 28px; cursor: pointer; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+      .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; font-size: 22px; padding: 14px; cursor: pointer; border-radius: 5px; }
+      .lightbox-prev { left: 16px; } .lightbox-next { right: 16px; }
 
       /* ===== 联系与地图（50% 透明） ===== */
       #contact { background: linear-gradient(135deg, rgba(232,245,233,0.5) 0%, rgba(212,237,219,0.5) 100%); }
-      .appointment-card { display: flex; justify-content: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+      .appointment-card { display: flex; justify-content: center; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; }
       .appointment-map {
         display: flex; flex-direction: column; align-items: center;
         background: rgba(255, 255, 255, 0.5); /* 50% */
-        padding: 40px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid rgba(107,115,255,0.1);
-        backdrop-filter: blur(6px);
+        padding: 32px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 1px solid rgba(107,115,255,0.1);
+        backdrop-filter: blur(6px); width: 100%;
       }
-      .appointment-info { margin-top: 30px; text-align: left; width: 100%; }
-      .appointment-info p { margin: 15px 0; font-size: 1.2rem; color: #222; }
-      .appointment-info a { color: #6B73FF; text-decoration: none; transition: color 0.3s ease; font-weight: 600; }
+      .appointment-info { margin-top: 22px; text-align: left; width: 100%; }
+      .appointment-info p { margin: 10px 0; font-size: 1.05rem; color: #222; }
+      .appointment-info a { color: #6B73FF; text-decoration: none; font-weight: 600; }
       .appointment-info a:hover { color: #764ba2; text-decoration: underline; }
-      .appointment-map h3 { margin-top: 25px; color: #6B73FF; font-size: 1.4rem; font-weight: 500; }
 
       /* ===== 页脚（50% 透明） ===== */
-      footer {
-        background: linear-gradient(135deg, rgba(51,51,51,0.5) 0%, rgba(85,85,85,0.5) 100%);
-        color: white; text-align: center; padding: 30px 0; margin-top: 50px;
-        backdrop-filter: blur(4px);
-      }
+      footer { background: linear-gradient(135deg, rgba(51,51,51,0.5) 0%, rgba(85,85,85,0.5) 100%); color: white; text-align: center; padding: 26px 0; margin-top: 50px; backdrop-filter: blur(4px); }
 
       /* ===== 响应式 ===== */
       @media (max-width: 768px) {
-        nav { flex-direction: column; padding: 15px; }
-        nav ul { margin-top: 15px; }
-        .home h1 { font-size: 2.5rem; }
-        .contact-buttons { flex-direction: column; align-items: center; }
-        .contact-card { min-width: auto; width: 90%; max-width: 400px; }
+        nav { flex-direction: column; padding: 12px; }
+        nav ul { margin-top: 10px; }
+        .home h1 { font-size: 2.2rem; }
+        .contact-card { min-width: auto; width: 90%; max-width: 420px; }
         .form-row { flex-direction: column; }
-        .service-box, .review-card { width: 100%; max-width: 400px; }
-        .photo-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .lightbox-content { max-width: 95%; max-height: 95%; }
-        .lightbox-nav { padding: 10px; font-size: 20px; }
-        .lightbox-prev { left: 10px; }
-        .lightbox-next { right: 10px; }
+        .service-box { width: 100%; max-width: 420px; }
+        .photo-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
       }
-
       @media (max-width: 480px) {
         section { padding: 40px 15px; }
         section h2 { font-size: 2rem; }
-        .home-content { padding: 25px; }
-        .home h1 { font-size: 2rem; }
-        .book-button, .call-button { padding: 12px 25px; font-size: 1rem; }
-        .phone-number { font-size: 1.6rem; }
-        .photo-grid { grid-template-columns: 1fr; gap: 15px; }
+        .home-content { padding: 22px; }
+        .book-button, .call-button { padding: 12px 22px; font-size: 1rem; }
       }
     </style>
   </head>
@@ -429,6 +201,7 @@
       <div class="home-content">
         <h1>Charm SPA</h1>
         <p class="spa-tagline">Your sanctuary of tranquility and rejuvenation</p>
+        <p class="spa-address">📍 324 SE 82nd Ave, Portland, OR 97216</p>
       </div>
 
       <!-- 电话与在线预约 -->
@@ -454,22 +227,22 @@
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name *</label>
-              <input type="text" id="firstName" name="firstName" required>
+              <input type="text" id="firstName" name="firstName" required />
             </div>
             <div class="form-group">
               <label for="lastName">Last Name *</label>
-              <input type="text" id="lastName" name="lastName" required>
+              <input type="text" id="lastName" name="lastName" required />
             </div>
           </div>
 
           <div class="form-group">
             <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required>
+            <input type="tel" id="phone" name="phone" required />
           </div>
 
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" />
           </div>
 
           <div class="form-group">
@@ -487,11 +260,11 @@
           <div class="form-row">
             <div class="form-group">
               <label for="date">Preferred Date *</label>
-              <input type="date" id="date" name="date" required>
+              <input type="date" id="date" name="date" required />
             </div>
             <div class="form-group">
               <label for="time">Preferred Time *</label>
-              <input type="time" id="time" name="time" min="08:30" max="23:00" required>
+              <input type="time" id="time" name="time" min="08:30" max="23:00" required />
             </div>
           </div>
 
@@ -512,7 +285,7 @@
               <option value="Essential Oil (+$10)">Essential Oil (+$10)</option>
               <option value="CBD Oil/Cream (+$10)">CBD Oil/Cream (+$10)</option>
             </select>
-            <small style="color: #333;">Hold Ctrl (PC) or Cmd (Mac) to select multiple options</small>
+            <small style="color:#333;">Hold Ctrl (PC) or Cmd (Mac) to select multiple options</small>
           </div>
 
           <div class="form-group">
@@ -521,7 +294,7 @@
           </div>
 
           <button type="submit" class="submit-btn">Request Appointment</button>
-          <p style="font-size: 0.9rem; color: #222; margin-top: 15px; text-align: center;">
+          <p style="font-size: 0.9rem; color: #222; margin-top: 12px; text-align: center;">
             We'll contact you within 30 minutes to confirm your appointment details.
           </p>
         </form>
@@ -535,7 +308,7 @@
       <div class="services">
         <div class="service-box">
           <h3>30-Minute Massage</h3>
-          <p>Perfect for a quick relaxation session or targeting specific areas. Experience relief and rejuvenation in just half an hour.</p>
+          <p>Perfect for a quick relaxation session or targeting specific areas.</p>
           <div class="price-wrapper">
             <h4>Cash: $50</h4>
             <h4>Credit Card: $53</h4>
@@ -544,7 +317,7 @@
 
         <div class="service-box">
           <h3>60-Minute Massage</h3>
-          <p>Our most popular option! Enjoy a full-body massage with ample time for deep relaxation and comprehensive treatment.</p>
+          <p>Our most popular option! Full-body massage with deep relaxation.</p>
           <div class="price-wrapper">
             <h4>Cash: $70</h4>
             <h4>Credit Card: $73</h4>
@@ -553,7 +326,7 @@
 
         <div class="service-box">
           <h3>90-Minute Massage</h3>
-          <p>The ultimate indulgence. Extended session for complete relaxation and thorough therapeutic treatment of all muscle groups.</p>
+          <p>The ultimate indulgence with thorough therapeutic treatment.</p>
           <div class="price-wrapper">
             <h4>Cash: $100</h4>
             <h4>Credit Card: $103</h4>
@@ -562,7 +335,7 @@
 
         <div class="service-box">
           <h3>Add-Ons Available</h3>
-          <p>Enhance your massage experience with our premium add-ons: Hot Stone Therapy, Essential Oils, or CBD Oil/Cream. Each add-on is only $10.</p>
+          <p>Hot Stone, Essential Oils, or CBD Oil/Cream — each +$10.</p>
           <div class="price-wrapper">
             <h4>Hot Stone: +$10</h4>
             <h4>Essential Oil: +$10</h4>
@@ -570,20 +343,17 @@
           </div>
         </div>
       </div>
-      <p style="color: #222; font-size: 1.1rem; margin-top: 30px;">
-        <strong>Payment Options:</strong> We accept Cash and Credit Cards<br>
-        <em>Credit card prices are $3 more than cash prices</em>
+      <p style="color:#222; font-size:1.05rem; margin-top: 14px;">
+        <strong>Payment Options:</strong> Cash & Credit Cards
       </p>
     </section>
 
-    <!-- 画廊 -->
+    <!-- 画廊（示例：请替换为你的图片） -->
     <section id="gallery">
       <div class="gallery-container">
         <h2>Our Serene Environment</h2>
         <h4>Experience the tranquility of Charm SPA</h4>
-        <div class="photo-grid" id="photoGrid">
-          <div class="loading-message" id="galleryLoading">Loading photos…</div>
-        </div>
+        <div class="photo-grid" id="photoGrid"></div>
       </div>
     </section>
 
@@ -604,23 +374,23 @@
       <div class="services">
         <div class="service-box">
           <h3>💰 Cash Discount</h3>
-          <p>Save $3 on every massage when you pay with cash! Available on all service durations.</p>
+          <p>Save $3 on every massage when you pay with cash.</p>
         </div>
 
         <div class="service-box">
           <h3>⭐ First Visit Special</h3>
-          <p>New to Charm SPA? Ask about our first-time visitor promotions when you call to book your appointment.</p>
+          <p>Ask about our first-time visitor promotions when you call.</p>
         </div>
       </div>
     </section>
 
-    <!-- 联系与位置 -->
+    <!-- 联系与位置（地址与地图均为同一地址） -->
     <section id="contact">
       <h2>Contact & Location</h2>
       <h4>Call, book online, or find us on the map</h4>
       <div class="appointment-card">
-        <div class="appointment-map" style="max-width:1000px; width:100%;">
-          <!-- 使用 query embed（避免 pb 参数错误） -->
+        <div class="appointment-map">
+          <!-- 固定到：324 SE 82nd Ave, Portland, OR 97216 -->
           <iframe
             title="Charm SPA - Google Map"
             width="100%"
@@ -629,17 +399,18 @@
             loading="lazy"
             allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=Charm%20SPA&output=embed">
+            src="https://www.google.com/maps?q=324%20SE%2082nd%20Ave%2C%20Portland%2C%20OR%2097216&output=embed">
           </iframe>
 
-          <h3>Visit Us</h3>
+          <h3 style="margin-top: 18px; color:#6B73FF;">Visit Us</h3>
           <div class="appointment-info">
+            <p><strong>Address:</strong> 324 SE 82nd Ave, Portland, OR 97216</p>
             <p><strong>Phone:</strong> <a href="tel:+1-503-422-2573">503-422-2573</a></p>
             <p><strong>Hours:</strong> 8:30 AM – 11:00 PM (Daily)</p>
             <p>
-              <a href="https://www.google.com/maps?q=Charm%20SPA" target="_blank" rel="noopener">
-                Open in Google Maps
-              </a>
+              <a href="https://www.google.com/maps?q=324%20SE%2082nd%20Ave%2C%20Portland%2C%20OR%2097216" target="_blank" rel="noopener">Open in Google Maps</a>
+              &nbsp;|&nbsp;
+              <a href="https://www.google.com/maps/dir/?api=1&destination=324+SE+82nd+Ave%2C+Portland%2C+OR+97216" target="_blank" rel="noopener">Get Directions</a>
             </p>
           </div>
         </div>
@@ -685,30 +456,15 @@
         });
       });
 
-      // 画廊（示例使用内嵌 base64 占位图）
+      // 画廊示例数据（请替换为你的图片路径）
       const galleryImages = [
-        {
-          src: "data:image/jpeg;base64,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",
-          title: "Reception",
-          desc: "Warm welcome area"
-        },
-        {
-          src: "data:image/jpeg;base64,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",
-          title: "Hallway",
-          desc: "Peaceful corridor"
-        },
-        {
-          src: "data:image/jpeg;base64,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",
-          title: "Treatment Room",
-          desc: "Cozy massage suite"
-        }
+        { src: 'gallery1.jpg', title: 'Reception', desc: 'Warm welcome area' },
+        { src: 'gallery2.jpg', title: 'Hallway', desc: 'Peaceful corridor' },
+        { src: 'gallery3.jpg', title: 'Treatment Room', desc: 'Cozy massage suite' }
       ];
 
       (function renderGallery() {
         const grid = document.getElementById('photoGrid');
-        const loading = document.getElementById('galleryLoading');
-        if (loading) loading.remove();
-
         galleryImages.forEach((g, idx) => {
           const item = document.createElement('div');
           item.className = 'photo-item';
